@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      
+	  .search-items {
+		width: 500px;
+		/* height: auto; */
+		height: 1200px;
+		margin: auto;
+		border: 1px solid blue;
+		background-color:yellow;
+	  }
+
+	  input {
+		display: block;
+		width: 200px;
+		height: 20px;
+		margin: auto;
+		margin-top: 10px;
+	  }
+
+	  ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 400px;
+		height: auto;
+		margin: auto;
+		margin-top: 10px;
+		list-style: none;
+		/* border: 1px solid red; */
+	  }
+
+      /* .show {
+        width: 200px;
+        height: 200px;
+        border: 1px solid blue;
+        text-align: center;
+      } */
+
+      .hide {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      li {
+        margin: 20px;
+		text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-items">
+      <input type="text" />
+      <ul>
+        <li class="show"><img src="images/boy.jpeg" alt="" />boy</li>
+        <li class="show"><img src="images/camera.jpeg" alt="" />camera</li>
+        <li class="show"><img src="images/eye.jpeg" alt="" />eye</li>
+        <li class="show"><img src="images/flower.jpeg" alt="" />flower</li>
+      </ul>
+    </div>
+
+    <script>
+      const input = document.querySelector("input");
+      const ul = document.querySelector("ul");
+      const li = document.querySelectorAll("li");
+
+      input.addEventListener("input", () => {
+        li.forEach((x) => {
+          if (x.textContent.includes(input.value)) {
+            // console.log(x.textContent);
+            x.classList.remove("hide");
+            x.classList.add("show");
+          }
+          if (!x.textContent.includes(input.value)) {
+            // console.log("not includes");
+            x.classList.add("hide");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
