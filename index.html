@@ -105,8 +105,6 @@
       // Using forEach method to filter our results case-sensitive
       input.addEventListener("input", () => {
         li.forEach((x) => {
-          // const lowerSearchItem = x.toLowerCase();
-          console.log(typeof x)
           if (x.textContent.includes(input.value)) {
             x.classList.remove("hide");
             x.classList.add("show");
