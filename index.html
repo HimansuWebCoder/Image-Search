@@ -92,7 +92,7 @@
             class="search-image"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flower_poster_2.jpg/640px-Flower_poster_2.jpg"
             alt=""
-          />flower
+          />Flower
         </li>
       </ul>
     </div>
@@ -102,15 +102,16 @@
       const ul = document.querySelector("ul");
       const li = document.querySelectorAll("li");
 
+      // Using forEach method to filter our results case-sensitive
       input.addEventListener("input", () => {
         li.forEach((x) => {
+          // const lowerSearchItem = x.toLowerCase();
+          console.log(typeof x)
           if (x.textContent.includes(input.value)) {
-            // console.log(x.textContent);
             x.classList.remove("hide");
             x.classList.add("show");
           }
           if (!x.textContent.includes(input.value)) {
-            // console.log("not includes");
             x.classList.add("hide");
           }
         });
