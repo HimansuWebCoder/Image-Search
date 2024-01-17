@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+       .container {
+        width: 80%;
+        height: auto;
+        border: 1px solid black;
+        margin: auto;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+       }
+
+       input {
+        width: 80%;
+        margin: auto;
+       }
+
+       button {
+        width: 5rem;
+        margin: auto;
+        margin-top: 5px;
+       }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" />
+      <button>search</button>
+      <p id="show-error"></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <script>
+      const input = document.querySelector("input");
+      const btn = document.querySelector("button");
+      const para = document.querySelectorAll("p");
+      const error = document.querySelector("#show-error");
+
+      const fruits = ["Mango", "Orange", "Lichi", "Banana", "Apple", "Guava", "Pine-apple"];
+
+      // Initially display search names
+      function displayNames() {
+        para.forEach((x, i) => {
+          x.textContent = fruits[i];
+        });
+      }
+
+      displayNames();
+
+      // filtering search names when search any name within input
+      function filteredFruits(e) {
+        const filterFruits = fruits.filter((x) => {
+          const searchLower = input.value.toLowerCase();
+          const lowerX = x.toLowerCase();
+          return lowerX.includes(searchLower);
+        });
+
+        if (e.key === "Enter") {
+          para.forEach((x, i) => {
+            x.textContent = filterFruits[i];
+          });
+
+          input.value = "";
+          input.focus();
+ 
+        }
+      }
+
+      // search using input when click add button
+      btn.addEventListener("click", filteredFruits);
+      input.addEventListener("keydown", filteredFruits)
+    </script>
+  </body>
+</html>
