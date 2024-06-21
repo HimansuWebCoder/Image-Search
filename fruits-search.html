@@ -67,9 +67,9 @@
           return lowerX.includes(searchLower);
         });
 
-        if (e.key === "Enter") {
+        if (e.key === "input") {
           para.forEach((x, i) => {
-            x.textContent = filterFruits[i];
+            x.textContent = filterFruits;
           });
 
           input.value = "";
